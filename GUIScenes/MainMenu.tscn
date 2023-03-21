@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/GithubLikeButton.gd" type="Script" id=1]
+[ext_resource path="res://GUIScenes/ButtonScrips.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/MainFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/GitHubLogo.png" type="Texture" id=4]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Main" type="Panel" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Background" type="Node2D" parent="Main"]
+
+[node name="Background" type="ColorRect" parent="Main/Background"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.858824, 0.878431, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxMain" type="HBoxContainer" parent="Main"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -314.0
+margin_top = -215.5
+margin_right = 314.0
+margin_bottom = 215.5
+alignment = 1
+
+[node name="VBoxMain" type="VBoxContainer" parent="Main/HBoxMain"]
+margin_left = 157.0
+margin_right = 470.0
+margin_bottom = 431.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="Main/HBoxMain/VBoxMain"]
+margin_top = 115.0
+margin_right = 313.0
+margin_bottom = 145.0
+custom_fonts/font = ExtResource( 3 )
+text = "4.2 program main menu"
+align = 1
+valign = 1
+
+[node name="StartButton" type="Button" parent="Main/HBoxMain/VBoxMain"]
+margin_top = 161.0
+margin_right = 313.0
+margin_bottom = 197.0
+custom_fonts/font = ExtResource( 3 )
+text = "Start"
+script = ExtResource( 2 )
+
+[node name="QuitButton" type="Button" parent="Main/HBoxMain/VBoxMain"]
+margin_top = 213.0
+margin_right = 313.0
+margin_bottom = 249.0
+custom_fonts/font = ExtResource( 3 )
+text = "Quit"
+
+[node name="HBoxGitHub" type="HBoxContainer" parent="Main/HBoxMain/VBoxMain"]
+margin_top = 265.0
+margin_right = 313.0
+margin_bottom = 315.0
+custom_constants/separation = 8
+alignment = 1
+
+[node name="GitHubLogo" type="TextureRect" parent="Main/HBoxMain/VBoxMain/HBoxGitHub"]
+margin_left = 22.0
+margin_right = 72.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="GitHubLikeButton" type="LinkButton" parent="Main/HBoxMain/VBoxMain/HBoxGitHub"]
+margin_left = 80.0
+margin_top = 10.0
+margin_right = 290.0
+margin_bottom = 40.0
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0.329412, 1, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "GitHub page link"
+underline = 2
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="Main/HBoxMain/VBoxMain/StartButton" to="Main/HBoxMain/VBoxMain/StartButton" method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Main/HBoxMain/VBoxMain/QuitButton" to="Main/HBoxMain/VBoxMain/StartButton" method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="Main/HBoxMain/VBoxMain/HBoxGitHub/GitHubLikeButton" to="Main/HBoxMain/VBoxMain/HBoxGitHub/GitHubLikeButton" method="_on_GitHubLikeButton_pressed"]
