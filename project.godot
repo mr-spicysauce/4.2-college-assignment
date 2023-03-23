@@ -20,6 +20,7 @@ IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
 UserData="*res://addons/github-integration/scripts/user_data.gd"
 RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
 Globals="*res://Scripts/Globals.gd"
+IndividualSaveSystem="*res://IndividualSaveSystem.tscn"
 
 [display]
 
