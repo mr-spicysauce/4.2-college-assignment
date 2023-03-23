@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/GithubLikeButton.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/ButtonScrips.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/MainFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/GitHubLogo.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/Background.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=6]
 
 [node name="MainMenu" type="Node2D"]
@@ -18,7 +17,6 @@ __meta__ = {
 }
 
 [node name="Background" type="Node2D" parent="Main"]
-script = ExtResource( 5 )
 
 [node name="Background" type="ColorRect" parent="Main/Background"]
 margin_right = 1024.0
@@ -46,33 +44,40 @@ custom_constants/separation = 32
 alignment = 1
 
 [node name="Label" type="Label" parent="Main/HBoxMain/VBoxMain"]
-margin_top = 176.0
+margin_top = 142.0
 margin_right = 313.0
-margin_bottom = 206.0
+margin_bottom = 172.0
 custom_fonts/font = ExtResource( 3 )
 text = "4.2 program main menu"
 align = 1
 valign = 1
 
 [node name="StartButton" type="Button" parent="Main/HBoxMain/VBoxMain"]
-margin_top = 238.0
+margin_top = 204.0
 margin_right = 313.0
-margin_bottom = 274.0
+margin_bottom = 240.0
 custom_fonts/font = ExtResource( 3 )
 text = "Start"
 script = ExtResource( 2 )
 
-[node name="QuitButton" type="Button" parent="Main/HBoxMain/VBoxMain"]
-margin_top = 306.0
+[node name="EventsAndRanks" type="Button" parent="Main/HBoxMain/VBoxMain"]
+margin_top = 272.0
 margin_right = 313.0
-margin_bottom = 342.0
+margin_bottom = 308.0
+custom_fonts/font = ExtResource( 3 )
+text = "Events and ranks"
+
+[node name="QuitButton" type="Button" parent="Main/HBoxMain/VBoxMain"]
+margin_top = 340.0
+margin_right = 313.0
+margin_bottom = 376.0
 custom_fonts/font = ExtResource( 3 )
 text = "Quit"
 
 [node name="HBoxGitHub" type="HBoxContainer" parent="Main/HBoxMain/VBoxMain"]
-margin_top = 374.0
+margin_top = 408.0
 margin_right = 313.0
-margin_bottom = 424.0
+margin_bottom = 458.0
 custom_constants/separation = 8
 alignment = 1
 

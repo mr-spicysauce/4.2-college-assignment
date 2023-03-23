@@ -1,7 +1,8 @@
 extends Node2D
 
-var CurrentIndividualID = 666
-var CurrentIndividualName = "test name"
+var CurrentIndividualID = null
+var CurrentIndividualName = "null name"
+var CurrentIndividualPlacment = null
 
 var IndividualsDataFile = "res://Data/IndividualData.cfg"
 var file = ConfigFile.new()
@@ -22,3 +23,34 @@ func LoadValue(section, key, key2):
 	CurrentIndividualName = file.get_value(section, key2)
 	print(CurrentIndividualID)
 	print(CurrentIndividualName)
+
+########## This section is to handel the saving of the event placments ##########
+
+#This saves the running placment of the individual
+func SaveRunningPlacment(section, key):
+	file.set_value(section, key, CurrentIndividualPlacment)
+	file.save(IndividualsDataFile)
+
+#This saves the maths placment of the individual
+func SaveMathsPlacment(section, key):
+	file.set_value(section, key, CurrentIndividualPlacment)
+	file.save(IndividualsDataFile)
+
+#This saves the jumping placment of the individual
+func SaveJumpingPlacment(section, key):
+	file.set_value(section, key, CurrentIndividualPlacment)
+	file.save(IndividualsDataFile)
+
+#This saves the swimming placment of the individual
+func SaveSwimmingPlacment(section, key):
+	file.set_value(section, key, CurrentIndividualPlacment)
+	file.save(IndividualsDataFile)
+
+#This saves the arts and craft placment of the individual
+func SaveArtsAndCraftPlacment(section, key):
+	file.set_value(section, key, CurrentIndividualPlacment)
+	file.save(IndividualsDataFile)
+
+########################################
+##########~~~End of section~~~##########
+########################################
