@@ -4,6 +4,12 @@ var CurrentIndividualID = null
 var CurrentIndividualName = "null name"
 var CurrentIndividualPlacment = null
 
+var CurrentRunningPlacment= null
+var CurrentMathsPlacment= null
+var CurrentSwimmingPlacment= null
+var CurrentJummpingPlacment= null
+var CurrentArtsAndCraftPlacment= null
+
 var IndividualsDataFile = "res://Data/IndividualData.cfg"
 var file = ConfigFile.new()
 var load_file = file.load(IndividualsDataFile)
@@ -21,35 +27,57 @@ func SaveValue(section, key, key2):
 func LoadValue(section, key, key2):
 	CurrentIndividualID = file.get_value(section, key)
 	CurrentIndividualName = file.get_value(section, key2)
-	print(CurrentIndividualID)
-	print(CurrentIndividualName)
 
 ########## This section is to handel the saving of the event placments ##########
+
+###When looking at this I could prob make a function that cycles through the name with a dictonay.
+###This would be more effencent and would look better but its 3:43AM and I cant be asked to do learn somthing new
+###This storage system is alreadt new and hard haha
 
 #This saves the running placment of the individual
 func SaveRunningPlacment(section, key):
 	file.set_value(section, key, CurrentIndividualPlacment)
 	file.save(IndividualsDataFile)
 
+#This loads the running placment of the individual
+func LoadRunningPlacment(section, key):
+	CurrentRunningPlacment= file.get_value(section, key)
+
 #This saves the maths placment of the individual
 func SaveMathsPlacment(section, key):
 	file.set_value(section, key, CurrentIndividualPlacment)
 	file.save(IndividualsDataFile)
+
+#This loads the maths placment of the individual
+func LoadMathsPlacment(section, key):
+	CurrentMathsPlacment=file.get_value(section, key)
 
 #This saves the jumping placment of the individual
 func SaveJumpingPlacment(section, key):
 	file.set_value(section, key, CurrentIndividualPlacment)
 	file.save(IndividualsDataFile)
 
+#This loads the jumping placment of the individual
+func LoadJumpingPlacment(section, key):
+	CurrentJummpingPlacment= file.get_value(section, key)
+
 #This saves the swimming placment of the individual
 func SaveSwimmingPlacment(section, key):
 	file.set_value(section, key, CurrentIndividualPlacment)
 	file.save(IndividualsDataFile)
 
+#This loads the swimming placment of the individual
+func LoadSwimmingPlacment(section, key):
+	CurrentSwimmingPlacment= file.get_value(section, key)
+
 #This saves the arts and craft placment of the individual
 func SaveArtsAndCraftPlacment(section, key):
 	file.set_value(section, key, CurrentIndividualPlacment)
 	file.save(IndividualsDataFile)
+
+#This loads the Arts and Crafts placment of the individual
+func LoadArtsAndCraftsPlacment(section, key):
+	CurrentArtsAndCraftPlacment= file.get_value(section, key)
 
 ########################################
 ##########~~~End of section~~~##########

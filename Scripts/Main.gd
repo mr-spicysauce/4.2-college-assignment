@@ -82,6 +82,9 @@ func _on_SubmitIndividualPlacementData_pressed():
 	#This checks that no data so far is null
 	if get_node("/root/IndividualSaveSystem").CurrentIndividualName and get_node("/root/IndividualSaveSystem").CurrentIndividualID and get_node("/root/IndividualSaveSystem").CurrentIndividualPlacment != null:
 		
+		#Shows the button to continue
+		$Main/HBoxWhatEvent/VBoxMainReg/VBoxEventPlacement/ContinueToPlacement.show()
+		
 		#This checks to see if the dropdown box is slected to 0 (which is running event)
 		if $Main/HBoxWhatEvent/VBoxMainReg/VBoxEventID/IndividualEventDropDown.get_selected_id() == 0:
 			#This sets the running placment to what the user inputed
@@ -116,3 +119,27 @@ func _on_SubmitIndividualPlacementData_pressed():
 	get_node("/root/IndividualSaveSystem").CurrentIndividualPlacment = null
 	TempIndividualPlacment = null
 	$Main/HBoxWhatEvent/VBoxMainReg/VBoxEventPlacement/WhatIndividualPlacment.text = ""
+
+#This function hides the current gui and shows the next set of gui
+func _on_ContinueToPlacement_pressed():
+	$Main/HBoxWhatEvent.hide()
+	$Main/HBoxIndividualPoints.show()
+	IndividualPointsAndPlacment()
+
+#This function is to pull data from the files and display it on screen. It also calculates the points and displays it
+func IndividualPointsAndPlacment():
+	
+	#This hunk of code is to call functions to load the data (there is a better way to do this but its almost 4am)
+	get_node("/root/IndividualSaveSystem").LoadRunningPlacment(str(TempCurrentIndividualID), "RunningPlacment" )
+	get_node("/root/IndividualSaveSystem").LoadMathsPlacment(str(TempCurrentIndividualID), "MathsPlacment" )
+	get_node("/root/IndividualSaveSystem").LoadSwimmingPlacment(str(TempCurrentIndividualID), "SwimmingPlacment" )
+	get_node("/root/IndividualSaveSystem").LoadJumpingPlacment(str(TempCurrentIndividualID), "JummpingPlacment" )
+	get_node("/root/IndividualSaveSystem").LoadArtsAndCraftsPlacment(str(TempCurrentIndividualID), "ArtsAndCraftPlacment" )
+	#This other chunk of code is to display the data with the correct tags. I think there is a better way to do this but Rich text lables are a pain in godot >;( 
+	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList/ID.text = "ID: " + str(get_node("/root/IndividualSaveSystem").CurrentIndividualID)
+	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList/Name.text = "Name: " + str(get_node("/root/IndividualSaveSystem").CurrentIndividualName)
+	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList/Running.text = "Running Placment = " + str(get_node("/root/IndividualSaveSystem").CurrentRunningPlacment)
+	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList/Maths.text = "Maths Placment = " + str(get_node("/root/IndividualSaveSystem").CurrentMathsPlacment)
+	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList/Swimming.text = "Swimming Placment = " + str(get_node("/root/IndividualSaveSystem").CurrentSwimmingPlacment)
+	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList/Jumping.text = "Jumping Placment = " + str(get_node("/root/IndividualSaveSystem").CurrentJummpingPlacment)
+	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList/ArtsAndCraft.text = "Arts And Crafts Placment = " + str(get_node("/root/IndividualSaveSystem").CurrentArtsAndCraftPlacment)
