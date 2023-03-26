@@ -5,6 +5,9 @@ extends Node2D
 var TempCurrentIndividualID = ""
 var TempCurrentIndividualName = "T name"
 var TempIndividualPlacment = null
+var MaxScore = 20*4
+var Points = 0 
+var TempTotalPoints = 0
 
 func _ready():
 	#This checks to see if darkmode is enabled and sets the background to darkmode if it is
@@ -120,6 +123,18 @@ func _on_SubmitIndividualPlacementData_pressed():
 	TempIndividualPlacment = null
 	$Main/HBoxWhatEvent/VBoxMainReg/VBoxEventPlacement/WhatIndividualPlacment.text = ""
 
+#This funciotn calculates the score based on a input (which is the placemetns)
+func CalculateIndividualScore(Placment):
+	Points = MaxScore
+	var n = 1
+	
+	while n < Placment:
+		Points = Points * 0.85
+		n = n + 1
+		#this resets the vars back to defult
+	TempTotalPoints = TempTotalPoints + Points
+	n = -0
+
 #This function hides the current gui and shows the next set of gui
 func _on_ContinueToPlacement_pressed():
 	$Main/HBoxWhatEvent.hide()
@@ -143,3 +158,28 @@ func IndividualPointsAndPlacment():
 	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList/Swimming.text = "Swimming Placment = " + str(get_node("/root/IndividualSaveSystem").CurrentSwimmingPlacment)
 	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList/Jumping.text = "Jumping Placment = " + str(get_node("/root/IndividualSaveSystem").CurrentJummpingPlacment)
 	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList/ArtsAndCraft.text = "Arts And Crafts Placment = " + str(get_node("/root/IndividualSaveSystem").CurrentArtsAndCraftPlacment)
+	
+	#This chuck of code is to run the calculate score function and display it on screen. Could also be made to look better and more effecent
+	CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentRunningPlacment)
+	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/RunningPoints.text = "Running Points = " + str(int(Points))
+	Points = MaxScore
+	CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentMathsPlacment)
+	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/MathsPoints.text = "Maths Points = " + str(int(Points))
+	Points = MaxScore
+	CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentSwimmingPlacment)
+	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/SwimmingPoints.text = "Swimming Points = " + str(int(Points))
+	Points = MaxScore
+	CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentJummpingPlacment)
+	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/JumpingPoints.text = "Jumping Points = " + str(int(Points))
+	Points = MaxScore
+	CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentArtsAndCraftPlacment)
+	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/ArtsAndCraftPoints.text = "Arts And Crafts Points = " + str(int(Points))
+	Points = MaxScore
+	
+	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/TotalPoints.text = "Total Points = " + str(int(TempTotalPoints))
+	
+	#This saves the total points to the Indiciduals file
+	get_node("/root/IndividualSaveSystem").CurrentIndividualTotalPoints = int(TempTotalPoints)
+	get_node("/root/IndividualSaveSystem").SaveIndividualTotalPoints(str(TempCurrentIndividualID), "TotalPoints")
+	
+	

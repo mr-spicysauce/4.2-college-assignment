@@ -3,6 +3,7 @@ extends Node2D
 var CurrentIndividualID = null
 var CurrentIndividualName = "null name"
 var CurrentIndividualPlacment = null
+var CurrentIndividualTotalPoints= null
 
 var CurrentRunningPlacment= null
 var CurrentMathsPlacment= null
@@ -78,6 +79,10 @@ func SaveArtsAndCraftPlacment(section, key):
 #This loads the Arts and Crafts placment of the individual
 func LoadArtsAndCraftsPlacment(section, key):
 	CurrentArtsAndCraftPlacment= file.get_value(section, key)
+
+func SaveIndividualTotalPoints(section, key):
+	file.set_value(section, key, CurrentIndividualTotalPoints)
+	file.save(IndividualsDataFile)
 
 ########################################
 ##########~~~End of section~~~##########
