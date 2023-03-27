@@ -2,12 +2,19 @@ extends Node2D
 
 #This is where all the variables go, Will be sorted better later!
 
+#Individuals varibals
 var TempCurrentIndividualID = ""
 var TempCurrentIndividualName = "T name"
 var TempIndividualPlacment = null
+
+#math variables
 var MaxScore = 20*4
 var Points = 0 
 var TempTotalPoints = 0
+
+#Team variables
+var TempTeamID = ""
+var TempTeamName = "T name"
 
 func _ready():
 	#This checks to see if darkmode is enabled and sets the background to darkmode if it is
@@ -39,6 +46,7 @@ func _on_RegisterButton_pressed():
 #This function hides the current gui and shows the next set of gui
 func _on_TeamsButton_pressed():
 	$Main/HBoxTeamOrIndividual.hide()
+	$Main/HBoxTeamInputs.show()
 
 #This function hides the current gui and shows the next set of gui
 func _on_IndividualButton_pressed():
@@ -182,4 +190,26 @@ func IndividualPointsAndPlacment():
 	get_node("/root/IndividualSaveSystem").CurrentIndividualTotalPoints = int(TempTotalPoints)
 	get_node("/root/IndividualSaveSystem").SaveIndividualTotalPoints(str(TempCurrentIndividualID), "TotalPoints")
 	
-	
+
+########## All this is for finding the Teams ID and loaded the ID, Name etc##########
+
+func _on_EnterTeamUniqeIDText_text_changed(new_text):
+	TempTeamID = int(new_text)
+
+func _on_SubmitTeamUniqeIDButton_pressed():
+	get_node("/root/TeamSaveSystem").LoadValue(str(TempTeamID), "ID", "Name")
+	get_node("/root/TeamSaveSystem").LoadMemebers(str(TempTeamID), "Member1", "Member2", "Member3", "Member4")
+	TempTeamName = get_node("/root/TeamSaveSystem").CurrentTeamName
+	if get_node("/root/TeamSaveSystem").CurrentTeamName and get_node("/root/TeamSaveSystem").CurrentTeamID != null:
+		$Main/HBoxTeamInputs/VBoxMainBool/VBoxTeamName.show()
+		$Main/HBoxTeamInputs/VBoxMainBool/VBoxTeamName/OutputUsersName.text = "Team Name: " + TempTeamName
+		$Main/HBoxTeamInputs/VBoxMainBool/VBoxTeamName/Member1.text = "Member 1: " + str(get_node("/root/TeamSaveSystem").Memeber1Name)
+		$Main/HBoxTeamInputs/VBoxMainBool/VBoxTeamName/Member2.text = "Member 2: " + str(get_node("/root/TeamSaveSystem").Memeber2Name)
+		$Main/HBoxTeamInputs/VBoxMainBool/VBoxTeamName/Member3.text = "Member 3: " + str(get_node("/root/TeamSaveSystem").Memeber3Name)
+		$Main/HBoxTeamInputs/VBoxMainBool/VBoxTeamName/Member4.text = "Member 4: " + str(get_node("/root/TeamSaveSystem").Memeber4Name)
+	else:
+		#This is a popup box telling the user to input or correct the individuals ID
+		$Main/NoUniqueIDErrorBox.popup()
+
+func _on_CorrectTeamButton_pressed():
+	$Main/HBoxTeamInputs.hide()
