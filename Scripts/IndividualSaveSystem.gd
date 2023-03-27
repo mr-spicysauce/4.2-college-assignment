@@ -11,10 +11,17 @@ var CurrentSwimmingPlacment= null
 var CurrentJummpingPlacment= null
 var CurrentArtsAndCraftPlacment= null
 
-var IndividualsDataFile = "res://Data/IndividualData.cfg"
+var IndividualsDataFile = "user://IndividualData.cfg"
 var file = ConfigFile.new()
 var load_file = file.load(IndividualsDataFile)
 
+var NumOfIndividuals = null
+
+#This gets the number of individuals from the individuals file so that it can be used in the scoreing system
+func _ready():
+	var num_sections = file.get_sections()
+	NumOfIndividuals = num_sections.size()
+	print("NumOfIndividuals:", NumOfIndividuals)
 
 #This saves values from the data file wich contains Indivduals data
 #"section" refers the UniqueID that everyone has
@@ -28,6 +35,7 @@ func SaveValue(section, key, key2):
 func LoadValue(section, key, key2):
 	CurrentIndividualID = file.get_value(section, key)
 	CurrentIndividualName = file.get_value(section, key2)
+
 
 ########## This section is to handel the saving of the event placments ##########
 

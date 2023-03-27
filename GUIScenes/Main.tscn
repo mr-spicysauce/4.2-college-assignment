@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Fonts/MainFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scripts/QuitButton.gd" type="Script" id=2]
@@ -64,6 +64,14 @@ font_data = ExtResource( 3 )
 [sub_resource type="Theme" id=5]
 default_font = SubResource( 4 )
 
+[sub_resource type="DynamicFont" id=10]
+size = 13
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_char = 1
+font_data = ExtResource( 3 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -85,7 +93,6 @@ __meta__ = {
 }
 
 [node name="HBoxMainReg" type="HBoxContainer" parent="Main"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 alignment = 1
@@ -458,20 +465,20 @@ custom_fonts/font = SubResource( 8 )
 text = "Maths Placment = "
 valign = 1
 
-[node name="Swimming" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList"]
-margin_top = 202.0
-margin_right = 381.0
-margin_bottom = 224.0
-custom_fonts/font = SubResource( 8 )
-text = "Swimming Placment = "
-valign = 1
-
 [node name="Jumping" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList"]
 margin_top = 234.0
 margin_right = 381.0
 margin_bottom = 256.0
 custom_fonts/font = SubResource( 8 )
 text = "Jumping Placment = "
+valign = 1
+
+[node name="Swimming" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList"]
+margin_top = 202.0
+margin_right = 381.0
+margin_bottom = 224.0
+custom_fonts/font = SubResource( 8 )
+text = "Swimming Placment = "
 valign = 1
 
 [node name="ArtsAndCraft" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList"]
@@ -519,20 +526,20 @@ custom_fonts/font = SubResource( 8 )
 text = "Maths Points = "
 valign = 1
 
-[node name="SwimmingPoints" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints"]
-margin_top = 114.0
-margin_right = 381.0
-margin_bottom = 136.0
-custom_fonts/font = SubResource( 8 )
-text = "Swimming Points = "
-valign = 1
-
 [node name="JumpingPoints" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints"]
 margin_top = 140.0
 margin_right = 381.0
 margin_bottom = 162.0
 custom_fonts/font = SubResource( 8 )
 text = "Jumping Points = "
+valign = 1
+
+[node name="SwimmingPoints" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints"]
+margin_top = 114.0
+margin_right = 381.0
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 8 )
+text = "Swimming Points = "
 valign = 1
 
 [node name="ArtsAndCraftPoints" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints"]
@@ -552,6 +559,7 @@ text = "Total Points = "
 valign = 1
 
 [node name="HBoxTeamInputs" type="HBoxContainer" parent="Main"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 alignment = 1
@@ -602,6 +610,7 @@ custom_fonts/font = ExtResource( 1 )
 text = "Submit ID"
 
 [node name="VBoxTeamName" type="VBoxContainer" parent="Main/HBoxTeamInputs/VBoxMainBool"]
+visible = false
 margin_top = 285.0
 margin_right = 494.0
 margin_bottom = 536.0
@@ -660,6 +669,257 @@ rect_min_size = Vector2( 0, 40 )
 custom_fonts/font = ExtResource( 1 )
 text = "Continue"
 
+[node name="HBoxTeamWhatEvent" type="HBoxContainer" parent="Main"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxMainReg" type="VBoxContainer" parent="Main/HBoxTeamWhatEvent"]
+margin_left = 231.0
+margin_right = 792.0
+margin_bottom = 600.0
+custom_constants/separation = 128
+
+[node name="Title" type="Label" parent="Main/HBoxTeamWhatEvent/VBoxMainReg"]
+margin_right = 561.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 1 )
+text = "Please enter the event infomation"
+align = 1
+valign = 1
+
+[node name="VBoxEventID" type="VBoxContainer" parent="Main/HBoxTeamWhatEvent/VBoxMainReg"]
+margin_top = 158.0
+margin_right = 561.0
+margin_bottom = 231.0
+custom_constants/separation = 10
+
+[node name="2ndTitle" type="Label" parent="Main/HBoxTeamWhatEvent/VBoxMainReg/VBoxEventID"]
+margin_right = 561.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 1 )
+text = "What event did you participate in?"
+align = 1
+valign = 1
+
+[node name="TeamEventDropDown" type="OptionButton" parent="Main/HBoxTeamWhatEvent/VBoxMainReg/VBoxEventID"]
+margin_top = 37.0
+margin_right = 561.0
+margin_bottom = 73.0
+theme = SubResource( 6 )
+custom_fonts/font = ExtResource( 1 )
+
+[node name="VBoxEventPlacement" type="VBoxContainer" parent="Main/HBoxTeamWhatEvent/VBoxMainReg"]
+margin_top = 359.0
+margin_right = 561.0
+margin_bottom = 474.0
+
+[node name="Title" type="Label" parent="Main/HBoxTeamWhatEvent/VBoxMainReg/VBoxEventPlacement"]
+margin_right = 561.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 2 )
+text = "What place did your team come in the event?"
+align = 1
+valign = 1
+
+[node name="WhatTeamPlacment" type="LineEdit" parent="Main/HBoxTeamWhatEvent/VBoxMainReg/VBoxEventPlacement"]
+margin_top = 31.0
+margin_right = 561.0
+margin_bottom = 71.0
+custom_fonts/font = ExtResource( 1 )
+max_length = 2
+
+[node name="SubmitTeamPlacementData" type="Button" parent="Main/HBoxTeamWhatEvent/VBoxMainReg/VBoxEventPlacement"]
+margin_top = 75.0
+margin_right = 561.0
+margin_bottom = 115.0
+rect_min_size = Vector2( 0, 40 )
+custom_fonts/font = ExtResource( 1 )
+text = "Submit Infomation"
+
+[node name="ContinueToTeamPlacement" type="Button" parent="Main/HBoxTeamWhatEvent/VBoxMainReg/VBoxEventPlacement"]
+visible = false
+margin_top = 119.0
+margin_right = 561.0
+margin_bottom = 159.0
+rect_min_size = Vector2( 0, 40 )
+custom_fonts/font = ExtResource( 1 )
+text = "Continue to placements and points!"
+
+[node name="HBoxTeamPoints" type="HBoxContainer" parent="Main"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxMainReg" type="VBoxContainer" parent="Main/HBoxTeamPoints"]
+margin_left = 279.0
+margin_right = 745.0
+margin_bottom = 600.0
+custom_constants/separation = 32
+
+[node name="Title" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg"]
+margin_right = 466.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 9 )
+text = "The teams points and placments!"
+align = 1
+valign = 1
+
+[node name="VBoxEventPlacmentsList" type="VBoxContainer" parent="Main/HBoxTeamPoints/VBoxMainReg"]
+margin_top = 65.0
+margin_right = 466.0
+margin_bottom = 353.0
+custom_constants/separation = 10
+
+[node name="2ndTitle" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPlacmentsList"]
+margin_right = 466.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 1 )
+text = "What your team placed in each event:"
+align = 1
+valign = 1
+
+[node name="Blank space" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPlacmentsList"]
+margin_top = 37.0
+margin_right = 466.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+
+[node name="ID" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPlacmentsList"]
+margin_top = 74.0
+margin_right = 466.0
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 8 )
+text = "ID:"
+valign = 1
+
+[node name="Name" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPlacmentsList"]
+margin_top = 106.0
+margin_right = 466.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 8 )
+text = "Team Name:"
+valign = 1
+
+[node name="Running" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPlacmentsList"]
+margin_top = 138.0
+margin_right = 466.0
+margin_bottom = 160.0
+custom_fonts/font = SubResource( 8 )
+text = "Running Placment ="
+valign = 1
+
+[node name="Maths" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPlacmentsList"]
+margin_top = 170.0
+margin_right = 466.0
+margin_bottom = 192.0
+custom_fonts/font = SubResource( 8 )
+text = "Maths Placment = "
+valign = 1
+
+[node name="Jumping" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPlacmentsList"]
+margin_top = 202.0
+margin_right = 466.0
+margin_bottom = 224.0
+custom_fonts/font = SubResource( 8 )
+text = "Jumping Placment = "
+valign = 1
+
+[node name="Swimming" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPlacmentsList"]
+margin_top = 234.0
+margin_right = 466.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 8 )
+text = "Swimming Placment = "
+valign = 1
+
+[node name="ArtsAndCraft" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPlacmentsList"]
+margin_top = 266.0
+margin_right = 466.0
+margin_bottom = 288.0
+custom_fonts/font = SubResource( 8 )
+text = "Arts And Crafts Placment = "
+valign = 1
+
+[node name="VBoxEventPoints" type="VBoxContainer" parent="Main/HBoxTeamPoints/VBoxMainReg"]
+margin_top = 385.0
+margin_right = 466.0
+margin_bottom = 599.0
+
+[node name="Title" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPoints"]
+margin_right = 466.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 2 )
+text = "Points earnt from event:"
+align = 1
+valign = 1
+
+[node name="Blank space" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPoints"]
+margin_top = 31.0
+margin_right = 466.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+
+[node name="RunningPoints" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPoints"]
+margin_top = 62.0
+margin_right = 466.0
+margin_bottom = 84.0
+custom_fonts/font = SubResource( 8 )
+text = "Running Points ="
+valign = 1
+
+[node name="MathsPoints" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPoints"]
+margin_top = 88.0
+margin_right = 466.0
+margin_bottom = 110.0
+custom_fonts/font = SubResource( 8 )
+text = "Maths Points = "
+valign = 1
+
+[node name="JumpingPoints" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPoints"]
+margin_top = 114.0
+margin_right = 466.0
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 8 )
+text = "Jumping Points = "
+valign = 1
+
+[node name="SwimmingPoints" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPoints"]
+margin_top = 140.0
+margin_right = 466.0
+margin_bottom = 162.0
+custom_fonts/font = SubResource( 8 )
+text = "Swimming Points = "
+valign = 1
+
+[node name="ArtsAndCraftPoints" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPoints"]
+margin_top = 166.0
+margin_right = 466.0
+margin_bottom = 188.0
+custom_fonts/font = SubResource( 8 )
+text = "Arts And Crafts Points = "
+valign = 1
+
+[node name="TotalPoints" type="Label" parent="Main/HBoxTeamPoints/VBoxMainReg/VBoxEventPoints"]
+margin_top = 192.0
+margin_right = 466.0
+margin_bottom = 214.0
+custom_fonts/font = SubResource( 8 )
+text = "Total Points = "
+valign = 1
+
 [node name="NoUniqueIDErrorBox" type="ConfirmationDialog" parent="Main"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -689,6 +949,72 @@ window_title = "A error has occurred"
 resizable = true
 dialog_text = "Please enter what event you participated in and what placment you got"
 
+[node name="IndividualMaxScoreNote" type="VBoxContainer" parent="Main"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -375.0
+margin_top = -153.0
+
+[node name="IndividualMaxScoreNote" type="Label" parent="Main/IndividualMaxScoreNote"]
+margin_right = 375.0
+margin_bottom = 107.0
+custom_fonts/font = SubResource( 10 )
+text = "NOTE: The score of these events
+are based on the number of individuals
+that are registered. If your score looks
+low its because there are a low amount
+of people in registered"
+
+[node name="NumOfIndiviudals" type="Label" parent="Main/IndividualMaxScoreNote"]
+margin_top = 111.0
+margin_right = 375.0
+margin_bottom = 130.0
+custom_fonts/font = SubResource( 10 )
+text = "Number of individuals = "
+
+[node name="MaxPlaceScore" type="Label" parent="Main/IndividualMaxScoreNote"]
+margin_top = 134.0
+margin_right = 375.0
+margin_bottom = 153.0
+custom_fonts/font = SubResource( 10 )
+text = "1st place score = "
+
+[node name="TeamMaxScoreNote" type="VBoxContainer" parent="Main"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -375.0
+margin_top = -153.0
+
+[node name="TeamMaxScoreNote" type="Label" parent="Main/TeamMaxScoreNote"]
+margin_right = 375.0
+margin_bottom = 107.0
+custom_fonts/font = SubResource( 10 )
+text = "NOTE: The score of these events
+are based on the number of teams
+that are registered. If your score looks
+low its because there are a low amount
+of teams that are registered"
+
+[node name="NumOfTeams" type="Label" parent="Main/TeamMaxScoreNote"]
+margin_top = 111.0
+margin_right = 375.0
+margin_bottom = 130.0
+custom_fonts/font = SubResource( 10 )
+text = "Number of teams = "
+
+[node name="MaxPlaceScore" type="Label" parent="Main/TeamMaxScoreNote"]
+margin_top = 134.0
+margin_right = 375.0
+margin_bottom = 153.0
+custom_fonts/font = SubResource( 10 )
+text = "1st place score = "
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="QuitButton" type="Button" parent="Node2D"]
@@ -711,4 +1037,7 @@ script = ExtResource( 2 )
 [connection signal="text_changed" from="Main/HBoxTeamInputs/VBoxMainBool/VBoxTeam/EnterTeamUniqeIDText" to="." method="_on_EnterTeamUniqeIDText_text_changed"]
 [connection signal="pressed" from="Main/HBoxTeamInputs/VBoxMainBool/VBoxTeam/SubmitTeamUniqeIDButton" to="." method="_on_SubmitTeamUniqeIDButton_pressed"]
 [connection signal="pressed" from="Main/HBoxTeamInputs/VBoxMainBool/VBoxTeamName/CorrectTeamButton" to="." method="_on_CorrectTeamButton_pressed"]
+[connection signal="text_changed" from="Main/HBoxTeamWhatEvent/VBoxMainReg/VBoxEventPlacement/WhatTeamPlacment" to="." method="_on_WhatTeamPlacment_text_changed"]
+[connection signal="pressed" from="Main/HBoxTeamWhatEvent/VBoxMainReg/VBoxEventPlacement/SubmitTeamPlacementData" to="." method="_on_SubmitTeamPlacementData_pressed"]
+[connection signal="pressed" from="Main/HBoxTeamWhatEvent/VBoxMainReg/VBoxEventPlacement/ContinueToTeamPlacement" to="." method="_on_ContinueToTeamPlacement_pressed"]
 [connection signal="pressed" from="Node2D/QuitButton" to="Node2D/QuitButton" method="_on_QuitButton_pressed"]
