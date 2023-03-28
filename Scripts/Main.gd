@@ -86,10 +86,6 @@ func _on_ExistingTeamButton_pressed():
 	$Main/HBoxTeamOrIndividual.show()
 
 #This function hides the current gui and shows the next set of gui
-func _on_RegisterButton_pressed():
-	pass # Replace with function body.
-
-#This function hides the current gui and shows the next set of gui
 func _on_TeamsButton_pressed():
 	$Main/HBoxTeamOrIndividual.hide()
 	$Main/HBoxTeamInputs.show()
@@ -209,7 +205,7 @@ func IndividualPointsAndPlacment():
 	get_node("/root/IndividualSaveSystem").LoadRunningPlacment(str(TempCurrentIndividualID), "RunningPlacment" )
 	get_node("/root/IndividualSaveSystem").LoadMathsPlacment(str(TempCurrentIndividualID), "MathsPlacment" )
 	get_node("/root/IndividualSaveSystem").LoadSwimmingPlacment(str(TempCurrentIndividualID), "SwimmingPlacment" )
-	get_node("/root/IndividualSaveSystem").LoadJumpingPlacment(str(TempCurrentIndividualID), "JummpingPlacment" )
+	get_node("/root/IndividualSaveSystem").LoadJumpingPlacment(str(TempCurrentIndividualID), "JjPlacment" )
 	get_node("/root/IndividualSaveSystem").LoadArtsAndCraftsPlacment(str(TempCurrentIndividualID), "ArtsAndCraftPlacment" )
 	#This other chunk of code is to display the data with the correct tags. I think there is a better way to do this but Rich text lables are a pain in godot >;( 
 	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList/ID.text = "ID: " + str(get_node("/root/IndividualSaveSystem").CurrentIndividualID)
@@ -384,3 +380,24 @@ func TeamPointsAndPlacment():
 	#This saves the total points to the Indiciduals file
 	get_node("/root/TeamSaveSystem").CurrentTeamTotalPoints = int(TeamTempTotalPoints)
 	get_node("/root/TeamSaveSystem").SaveTeamTotalPoints(str(TempTeamID), "TotalPoints")
+
+##############################################
+##########~~~End of Major section~~~##########
+##############################################
+
+##############################################
+#########~~~Start of Major section~~~#########
+##############################################
+
+#This function hides the current gui and shows the next set of gui
+func _on_RegisterButton_pressed():
+	$Main/HBoxIndividualPoints/VBoxMainReg.hide()
+	$Main/HBoxTeamOrIndividualReg.show()
+
+func _on_TeamsButtonReg_pressed():
+	$Main/HBoxTeamOrIndividualReg.hide()
+	
+
+func _on_IndividualButtonReg_pressed():
+	$Main/HBoxTeamOrIndividualReg.hide()
+	
