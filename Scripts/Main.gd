@@ -391,13 +391,33 @@ func TeamPointsAndPlacment():
 
 #This function hides the current gui and shows the next set of gui
 func _on_RegisterButton_pressed():
-	$Main/HBoxIndividualPoints/VBoxMainReg.hide()
+	$Main/HBoxMainReg.hide()
 	$Main/HBoxTeamOrIndividualReg.show()
 
 func _on_TeamsButtonReg_pressed():
 	$Main/HBoxTeamOrIndividualReg.hide()
-	
 
 func _on_IndividualButtonReg_pressed():
 	$Main/HBoxTeamOrIndividualReg.hide()
+	$Main/HBoxRegIndividual.show()
+
+func _on_LineEditIndividualName_text_changed(new_text):
+	TempCurrentIndividualName = new_text
+
+func _on_GenIDButton_pressed():
+	var RngNumber = 0
 	
+	RngNumber = int(rand_range(100, 999))
+	
+	CheckID(RngNumber)
+	$Main/HBoxRegIndividual/VBoxMainReg/VBoxRegister/HBoxTypeGenID/NewIDGen.text = "ID: " + str(RngNumber)
+
+func CheckID(RngNumber):
+	print(RngNumber)
+	get_node("/root/IndividualSaveSystem").DoesIdExsist(str(RngNumber), "ID")
+	if get_node("/root/IndividualSaveSystem").DoesIDExsist==true:
+		RngNumber = int(rand_range(100, 999))
+		CheckID(RngNumber)
+
+func _on_SaveAndGenDataButton_pressed():
+	pass # Replace with function body.
