@@ -25,7 +25,7 @@ func _ready():
 	#This calculates the max score
 	MaxScore = get_node("/root/IndividualSaveSystem").NumOfIndividuals*4
 	
-	MaxTeamScore = 20 *4
+	MaxTeamScore = get_node("/root/TeamSaveSystem").NumOfTeams*4
 	
 	$Main/IndividualMaxScoreNote/MaxPlaceScore.text = "1st place score = " + str(MaxScore)
 	$Main/IndividualMaxScoreNote/NumOfIndiviudals.text = "Number of individuals = " + str(get_node("/root/IndividualSaveSystem").NumOfIndividuals)
@@ -45,7 +45,7 @@ func CalculateIndividualScore(Placment):
 	Points = MaxScore
 	var n = 1
 	
-	while n < Placment:
+	while n < int(Placment):
 		Points = Points * 0.85
 		n = n + 1
 		#this resets the vars back to defult
@@ -205,7 +205,7 @@ func IndividualPointsAndPlacment():
 	get_node("/root/IndividualSaveSystem").LoadRunningPlacment(str(TempCurrentIndividualID), "RunningPlacment" )
 	get_node("/root/IndividualSaveSystem").LoadMathsPlacment(str(TempCurrentIndividualID), "MathsPlacment" )
 	get_node("/root/IndividualSaveSystem").LoadSwimmingPlacment(str(TempCurrentIndividualID), "SwimmingPlacment" )
-	get_node("/root/IndividualSaveSystem").LoadJumpingPlacment(str(TempCurrentIndividualID), "JjPlacment" )
+	get_node("/root/IndividualSaveSystem").LoadJumpingPlacment(str(TempCurrentIndividualID), "JummpingPlacment" )
 	get_node("/root/IndividualSaveSystem").LoadArtsAndCraftsPlacment(str(TempCurrentIndividualID), "ArtsAndCraftPlacment" )
 	#This other chunk of code is to display the data with the correct tags. I think there is a better way to do this but Rich text lables are a pain in godot >;( 
 	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList/ID.text = "ID: " + str(get_node("/root/IndividualSaveSystem").CurrentIndividualID)
@@ -217,6 +217,7 @@ func IndividualPointsAndPlacment():
 	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList/ArtsAndCraft.text = "Arts And Crafts Placment = " + str(get_node("/root/IndividualSaveSystem").CurrentArtsAndCraftPlacment)
 	
 	#This chuck of code is to run the calculate score function and display it on screen. Could also be made to look better and more effecent
+	
 	if get_node("/root/IndividualSaveSystem").CurrentRunningPlacment >0:
 		CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentRunningPlacment)
 		$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/RunningPoints.text = "Running Points = " + str(int(Points))
@@ -389,6 +390,9 @@ func TeamPointsAndPlacment():
 	#This saves the total points to the Indiciduals file
 	get_node("/root/TeamSaveSystem").CurrentTeamTotalPoints = int(TeamTempTotalPoints)
 	get_node("/root/TeamSaveSystem").SaveTeamTotalPoints(str(TempTeamID), "TotalPoints")
+	
+	$Main/TeamMaxScoreNote/NumOfTeams.text = "Number of teams = " + str(get_node("/root/TeamSaveSystem").NumOfTeams)
+	$Main/TeamMaxScoreNote/MaxPlaceScore.text = "1st place score = " + str(MaxTeamScore)
 
 ##############################################
 ##########~~~End of Major section~~~##########

@@ -5,11 +5,11 @@ var CurrentIndividualName = "null name"
 var CurrentIndividualPlacment = null
 var CurrentIndividualTotalPoints= null
 
-var CurrentRunningPlacment= 0
-var CurrentMathsPlacment= 0
-var CurrentSwimmingPlacment= 0
-var CurrentJummpingPlacment= 0
-var CurrentArtsAndCraftPlacment= 0
+var CurrentRunningPlacment= int(0)
+var CurrentMathsPlacment= int(0)
+var CurrentSwimmingPlacment= int(0)
+var CurrentJummpingPlacment= int(0)
+var CurrentArtsAndCraftPlacment= int(0)
 
 var DoesIDExsist = bool()
 
