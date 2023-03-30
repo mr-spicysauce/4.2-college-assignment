@@ -402,6 +402,8 @@ func TeamPointsAndPlacment():
 #########~~~Start of Major section~~~#########
 ##############################################
 
+#########This section is to register the individuals#########
+
 #This function hides the current gui and shows the next set of gui
 func _on_RegisterButton_pressed():
 	$Main/HBoxMainReg.hide()

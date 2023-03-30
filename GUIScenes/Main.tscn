@@ -93,6 +93,7 @@ __meta__ = {
 }
 
 [node name="HBoxMainReg" type="HBoxContainer" parent="Main"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 alignment = 1
@@ -265,6 +266,7 @@ margin_top = 37.0
 margin_right = 416.0
 margin_bottom = 77.0
 custom_fonts/font = ExtResource( 1 )
+max_length = 3
 
 [node name="SubmitUniqeIDButton" type="Button" parent="Main/HBoxIndividualInputs/VBoxMainBool/VBoxTeam"]
 margin_top = 87.0
@@ -600,6 +602,7 @@ margin_top = 37.0
 margin_right = 494.0
 margin_bottom = 77.0
 custom_fonts/font = ExtResource( 1 )
+max_length = 3
 
 [node name="SubmitTeamUniqeIDButton" type="Button" parent="Main/HBoxTeamInputs/VBoxMainBool/VBoxTeam"]
 margin_top = 87.0
@@ -1185,6 +1188,214 @@ valign = 1
 [node name="SaveAndGenDataButton" type="Button" parent="Main/HBoxRegIndividual/VBoxMainReg/VBoxSaveIndividual"]
 margin_top = 73.0
 margin_right = 465.0
+margin_bottom = 109.0
+custom_fonts/font = ExtResource( 1 )
+text = "Save and generate"
+
+[node name="HBoxRegTeams" type="HBoxContainer" parent="Main"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxMainReg" type="VBoxContainer" parent="Main/HBoxRegTeams"]
+margin_left = 302.0
+margin_right = 721.0
+margin_bottom = 600.0
+custom_constants/separation = 20
+
+[node name="Title" type="Label" parent="Main/HBoxRegTeams/VBoxMainReg"]
+margin_right = 419.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 1 )
+text = "You are registering as an team"
+align = 1
+valign = 1
+
+[node name="VBoxRegister" type="VBoxContainer" parent="Main/HBoxRegTeams/VBoxMainReg"]
+margin_top = 50.0
+margin_right = 419.0
+margin_bottom = 193.0
+custom_constants/separation = 20
+
+[node name="2ndTitle" type="Label" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxRegister"]
+margin_right = 419.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 1 )
+text = "Type in all team infomation here:"
+align = 1
+valign = 1
+
+[node name="HBoxTypeName" type="HBoxContainer" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxRegister"]
+margin_top = 47.0
+margin_right = 419.0
+margin_bottom = 87.0
+custom_constants/separation = 16
+alignment = 2
+
+[node name="TypeYourName" type="Label" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxRegister/HBoxTypeName"]
+margin_top = 6.0
+margin_right = 143.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 1 )
+text = "Team name:"
+align = 1
+valign = 1
+
+[node name="LineEditIndividualName" type="LineEdit" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxRegister/HBoxTypeName"]
+margin_left = 159.0
+margin_right = 419.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 260, 0 )
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="HBoxTypeGenID" type="HBoxContainer" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxRegister"]
+margin_top = 107.0
+margin_right = 419.0
+margin_bottom = 143.0
+custom_constants/separation = 16
+alignment = 2
+
+[node name="NewIDGen" type="Label" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxRegister/HBoxTypeGenID"]
+margin_left = 51.0
+margin_top = 4.0
+margin_right = 141.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 1 )
+text = "ID: 000"
+align = 1
+valign = 1
+
+[node name="GenIDButton" type="Button" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxRegister/HBoxTypeGenID"]
+margin_left = 157.0
+margin_right = 419.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 1 )
+text = "Generate a new ID"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/HBoxRegTeams/VBoxMainReg"]
+margin_top = 213.0
+margin_right = 419.0
+margin_bottom = 416.0
+
+[node name="2ndTitle" type="Label" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxContainer"]
+margin_right = 419.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 1 )
+text = "Register team members with ID's"
+align = 1
+valign = 1
+
+[node name="TeamMember1Container" type="HBoxContainer" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxContainer"]
+margin_top = 31.0
+margin_right = 419.0
+margin_bottom = 71.0
+alignment = 2
+
+[node name="TeamMember1" type="LineEdit" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxContainer/TeamMember1Container"]
+margin_left = 94.0
+margin_right = 354.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 260, 0 )
+custom_fonts/font = ExtResource( 1 )
+align = 1
+max_length = 3
+
+[node name="AddMember1" type="Button" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxContainer/TeamMember1Container"]
+margin_left = 358.0
+margin_right = 419.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "Add"
+
+[node name="TeamMember2Container" type="HBoxContainer" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxContainer"]
+margin_top = 75.0
+margin_right = 419.0
+margin_bottom = 115.0
+alignment = 2
+
+[node name="TeamMember2" type="LineEdit" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxContainer/TeamMember2Container"]
+margin_left = 94.0
+margin_right = 354.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 260, 0 )
+custom_fonts/font = ExtResource( 1 )
+align = 1
+max_length = 3
+
+[node name="AddMember2" type="Button" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxContainer/TeamMember2Container"]
+margin_left = 358.0
+margin_right = 419.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "Add"
+
+[node name="TeamMember3Container" type="HBoxContainer" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxContainer"]
+margin_top = 119.0
+margin_right = 419.0
+margin_bottom = 159.0
+alignment = 2
+
+[node name="TeamMember3" type="LineEdit" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxContainer/TeamMember3Container"]
+margin_left = 94.0
+margin_right = 354.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 260, 0 )
+custom_fonts/font = ExtResource( 1 )
+align = 1
+max_length = 3
+
+[node name="AddMember3" type="Button" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxContainer/TeamMember3Container"]
+margin_left = 358.0
+margin_right = 419.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "Add"
+
+[node name="TeamMember4Container" type="HBoxContainer" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxContainer"]
+margin_top = 163.0
+margin_right = 419.0
+margin_bottom = 203.0
+alignment = 2
+
+[node name="TeamMember4" type="LineEdit" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxContainer/TeamMember4Container"]
+margin_left = 94.0
+margin_right = 354.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 260, 0 )
+custom_fonts/font = ExtResource( 1 )
+align = 1
+max_length = 3
+
+[node name="AddMember4" type="Button" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxContainer/TeamMember4Container"]
+margin_left = 358.0
+margin_right = 419.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+text = "Add"
+
+[node name="VBoxSaveIndividual" type="VBoxContainer" parent="Main/HBoxRegTeams/VBoxMainReg"]
+margin_top = 436.0
+margin_right = 419.0
+margin_bottom = 545.0
+custom_constants/separation = 16
+
+[node name="Title" type="Label" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxSaveIndividual"]
+margin_right = 419.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 2 )
+text = "Save to database and generate
+placeholder data for events:"
+align = 1
+valign = 1
+
+[node name="SaveAndGenDataButton" type="Button" parent="Main/HBoxRegTeams/VBoxMainReg/VBoxSaveIndividual"]
+margin_top = 73.0
+margin_right = 419.0
 margin_bottom = 109.0
 custom_fonts/font = ExtResource( 1 )
 text = "Save and generate"
