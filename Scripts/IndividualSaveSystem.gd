@@ -5,13 +5,15 @@ var CurrentIndividualName = "null name"
 var CurrentIndividualPlacment = null
 var CurrentIndividualTotalPoints= null
 
-var CurrentRunningPlacment= null
-var CurrentMathsPlacment= null
-var CurrentSwimmingPlacment= null
-var CurrentJummpingPlacment= null
-var CurrentArtsAndCraftPlacment= null
+var CurrentRunningPlacment= 0
+var CurrentMathsPlacment= 0
+var CurrentSwimmingPlacment= 0
+var CurrentJummpingPlacment= 0
+var CurrentArtsAndCraftPlacment= 0
 
 var DoesIDExsist = bool()
+
+var BlankData = int()
 
 var IndividualsDataFile = "user://IndividualData.cfg"
 var file = ConfigFile.new()
@@ -47,8 +49,17 @@ func DoesIdExsist(section, key):
 		DoesIDExsist = false
 
 #This one function is to save temp data for a new registared user
-func RegistarUser(section, key, key2, key3, key4, key5):
-	file.set_value(section, key, key)
+func RegistarUser(section, key, key2, key3, key4, key5, key6, key7, key8, key9):
+	file.set_value(section, key, CurrentIndividualID)
+	file.set_value(section, key2, CurrentIndividualName)
+	file.set_value(section, key3, BlankData)
+	file.set_value(section, key4, BlankData)
+	file.set_value(section, key5, BlankData)
+	file.set_value(section, key6, BlankData)
+	file.set_value(section, key7, BlankData)
+	file.set_value(section, key8, BlankData)
+	file.set_value(section, key9, BlankData)
+	file.save(IndividualsDataFile)
 
 ########## This section is to handel the saving of the event placments ##########
 

@@ -217,21 +217,30 @@ func IndividualPointsAndPlacment():
 	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList/ArtsAndCraft.text = "Arts And Crafts Placment = " + str(get_node("/root/IndividualSaveSystem").CurrentArtsAndCraftPlacment)
 	
 	#This chuck of code is to run the calculate score function and display it on screen. Could also be made to look better and more effecent
-	CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentRunningPlacment)
-	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/RunningPoints.text = "Running Points = " + str(int(Points))
-	Points = MaxScore
-	CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentMathsPlacment)
-	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/MathsPoints.text = "Maths Points = " + str(int(Points))
-	Points = MaxScore
-	CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentSwimmingPlacment)
-	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/SwimmingPoints.text = "Swimming Points = " + str(int(Points))
-	Points = MaxScore
-	CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentJummpingPlacment)
-	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/JumpingPoints.text = "Jumping Points = " + str(int(Points))
-	Points = MaxScore
-	CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentArtsAndCraftPlacment)
-	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/ArtsAndCraftPoints.text = "Arts And Crafts Points = " + str(int(Points))
-	Points = MaxScore
+	if get_node("/root/IndividualSaveSystem").CurrentRunningPlacment >0:
+		CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentRunningPlacment)
+		$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/RunningPoints.text = "Running Points = " + str(int(Points))
+		Points = MaxScore
+	
+	if get_node("/root/IndividualSaveSystem").CurrentMathsPlacment >0:
+		CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentMathsPlacment)
+		$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/MathsPoints.text = "Maths Points = " + str(int(Points))
+		Points = MaxScore
+	
+	if get_node("/root/IndividualSaveSystem").CurrentJummpingPlacment >0:
+		CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentJummpingPlacment)
+		$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/JumpingPoints.text = "Jumping Points = " + str(int(Points))
+		Points = MaxScore
+	
+	if get_node("/root/IndividualSaveSystem").CurrentSwimmingPlacment >0:
+		CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentSwimmingPlacment)
+		$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/SwimmingPoints.text = "Swimming Points = " + str(int(Points))
+		Points = MaxScore
+	
+	if get_node("/root/IndividualSaveSystem").CurrentArtsAndCraftPlacment >0:
+		CalculateIndividualScore(get_node("/root/IndividualSaveSystem").CurrentArtsAndCraftPlacment)
+		$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/ArtsAndCraftPoints.text = "Arts And Crafts Points = " + str(int(Points))
+		Points = MaxScore
 	
 	$Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints/TotalPoints.text = "Total Points = " + str(int(TempTotalPoints))
 	
@@ -418,6 +427,12 @@ func CheckID(RngNumber):
 	if get_node("/root/IndividualSaveSystem").DoesIDExsist==true:
 		RngNumber = int(rand_range(100, 999))
 		CheckID(RngNumber)
+	else: 
+		TempCurrentIndividualID = RngNumber
+		get_node("/root/IndividualSaveSystem").CurrentIndividualID = RngNumber
 
 func _on_SaveAndGenDataButton_pressed():
-	pass # Replace with function body.
+	get_node("/root/IndividualSaveSystem").CurrentIndividualName = TempCurrentIndividualName
+	get_node("/root/IndividualSaveSystem").RegistarUser(str(TempCurrentIndividualID), "ID", "Name", "IsOnTeam", "RunningPlacment", "MathsPlacment", "JummpingPlacment", "SwimmingPlacment", "ArtsAndCraftPlacment", "TotalPoints")
+	$Main/HBoxRegIndividual/VBoxMainReg/VBoxRegister/HBoxTypeGenID/NewIDGen.text = "ID: "
+	$Main/HBoxRegIndividual/VBoxMainReg/VBoxRegister/HBoxTypeName/LineEditIndividualName.text = ""

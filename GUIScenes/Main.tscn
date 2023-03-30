@@ -454,7 +454,7 @@ margin_top = 138.0
 margin_right = 381.0
 margin_bottom = 160.0
 custom_fonts/font = SubResource( 8 )
-text = "Running Placment ="
+text = "Running Placment = 0"
 valign = 1
 
 [node name="Maths" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList"]
@@ -462,7 +462,7 @@ margin_top = 170.0
 margin_right = 381.0
 margin_bottom = 192.0
 custom_fonts/font = SubResource( 8 )
-text = "Maths Placment = "
+text = "Maths Placment = 0"
 valign = 1
 
 [node name="Jumping" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList"]
@@ -470,7 +470,7 @@ margin_top = 202.0
 margin_right = 381.0
 margin_bottom = 224.0
 custom_fonts/font = SubResource( 8 )
-text = "Jumping Placment = "
+text = "Jumping Placment = 0"
 valign = 1
 
 [node name="Swimming" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList"]
@@ -478,7 +478,7 @@ margin_top = 234.0
 margin_right = 381.0
 margin_bottom = 256.0
 custom_fonts/font = SubResource( 8 )
-text = "Swimming Placment = "
+text = "Swimming Placment = 0"
 valign = 1
 
 [node name="ArtsAndCraft" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPlacmentsList"]
@@ -486,7 +486,7 @@ margin_top = 266.0
 margin_right = 381.0
 margin_bottom = 288.0
 custom_fonts/font = SubResource( 8 )
-text = "Arts And Crafts Placment = "
+text = "Arts And Crafts Placment = 0"
 valign = 1
 
 [node name="VBoxEventPoints" type="VBoxContainer" parent="Main/HBoxIndividualPoints/VBoxMainReg"]
@@ -515,7 +515,7 @@ margin_top = 62.0
 margin_right = 381.0
 margin_bottom = 84.0
 custom_fonts/font = SubResource( 8 )
-text = "Running Points ="
+text = "Running Points = 0"
 valign = 1
 
 [node name="MathsPoints" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints"]
@@ -523,7 +523,7 @@ margin_top = 88.0
 margin_right = 381.0
 margin_bottom = 110.0
 custom_fonts/font = SubResource( 8 )
-text = "Maths Points = "
+text = "Maths Points = 0"
 valign = 1
 
 [node name="JumpingPoints" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints"]
@@ -531,7 +531,7 @@ margin_top = 114.0
 margin_right = 381.0
 margin_bottom = 136.0
 custom_fonts/font = SubResource( 8 )
-text = "Jumping Points = "
+text = "Jumping Points = 0"
 valign = 1
 
 [node name="SwimmingPoints" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints"]
@@ -539,7 +539,7 @@ margin_top = 140.0
 margin_right = 381.0
 margin_bottom = 162.0
 custom_fonts/font = SubResource( 8 )
-text = "Swimming Points = "
+text = "Swimming Points = 0"
 valign = 1
 
 [node name="ArtsAndCraftPoints" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints"]
@@ -547,7 +547,7 @@ margin_top = 166.0
 margin_right = 381.0
 margin_bottom = 188.0
 custom_fonts/font = SubResource( 8 )
-text = "Arts And Crafts Points = "
+text = "Arts And Crafts Points = 0"
 valign = 1
 
 [node name="TotalPoints" type="Label" parent="Main/HBoxIndividualPoints/VBoxMainReg/VBoxEventPoints"]
@@ -555,7 +555,7 @@ margin_top = 192.0
 margin_right = 381.0
 margin_bottom = 214.0
 custom_fonts/font = SubResource( 8 )
-text = "Total Points = "
+text = "Total Points = 0"
 valign = 1
 
 [node name="HBoxTeamInputs" type="HBoxContainer" parent="Main"]
